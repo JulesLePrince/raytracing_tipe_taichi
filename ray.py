@@ -1,14 +1,14 @@
 import numpy as np
-import math
 import taichi as ti
-from taichi.lang.ast.ast_transformer import Vector
 from taichi.ui.gui import taichi
+from vec3 import vec3
+
 
 @ti.dataclass
 class Ray:
-    origin: ti.types.vector(3, ti.f32)
-    direction: ti.types.vector(3, ti.f32)
+    origin: vec3
+    direction: vec3
 
     @ti.func
-    def at(self, t:float) -> ti.types.vector(3, ti.f32):
+    def at(self, t:float) -> vec3:
         return self.origin + t*self.direction
